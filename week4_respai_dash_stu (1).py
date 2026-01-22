@@ -134,49 +134,7 @@ plt.ylim(0, 1)
 plt.show() # Este comando renderiza o gráfico na célula do Colab.
 
 print("\n--- Responsible AI Reflection ---")
-print("Monitoring model metrics and fairness is fundamental for transparency and accountability. ")
-print("By documenting 'Prediction vs. Reality,' we ensure the model's efficiency is measurable ")
-print("and its impact is equitable across different groups. This prevents 'black box' ")
-print("decision-making and allows for iterative improvements in data preparation to ")
-print("mitigate algorithmic bias.")
-
-from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
-
-# Realizando as previsões com os dados de teste
-#y_pred = model.predict(X_test)
-
-# Calculando as métricas de eficiência
-acc = accuracy_score(y_test, y_pred)
-prec = precision_score(y_test, y_pred)
-rec = recall_score(y_test, y_pred)
-
-print("--- RESULTADOS DO TREINAMENTO (PASSO 4) ---")
-print(f"Accuracy (Acurácia):  {acc:.4f}")
-print(f"Precision (Precisão): {prec:.4f}")
-print(f"Recall (Revocação):   {rec:.4f}")
-
-# Exibindo a matriz de confusão numérica
-print("\nMatriz de Confusão:")
-print(confusion_matrix(y_test, y_pred))
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix
-
-# 1. Calcular a matriz numérica
-# Substitua 'y_test' e 'y_pred' pelas suas variáveis de teste e previsão
-cm = confusion_matrix(y_test, y_pred)
-
-# 2. Configurar o visual com Seaborn (Heatmap)
-plt.figure(figsize=(8, 6))
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-            xticklabels=['Não Selecionado', 'Selecionado'],
-            yticklabels=['Não Selecionado', 'Selecionado'])
-
-# 3. Adicionar rótulos detalhados para o Passo 4 (Avaliação)
-plt.title('Matriz de Confusão: Comparação Realidade vs. Previsão', fontsize=14)
-plt.ylabel('Valor Real (Ground Truth)', fontsize=12)
-plt.xlabel('Valor Previsto pelo Modelo', fontsize=12)
-
-# Exibir o gráfico no Colab ou salvar
-plt.show()
+print("""The implementation of a centralized dashboard is a critical step in transitioning from opaque, "black box" algorithms to systems of accountable and transparent artificial intelligence. In a recruitment context, the dashboard acts as a fundamental auditing tool that bridges the gap between raw data outputs and human ethical oversight. By visualizing performance metrics and fairness disparities in a single interface, it transforms abstract technical evaluations into actionable insights that can prevent the automation of historical discrimination.
+Transparency is primarily achieved through the detailed visualization of model metrics like the Confusion Matrix, which allows stakeholders to move beyond a single global accuracy score. When recruiters can clearly see the distribution of True Positives and False Positives, they gain a deeper understanding of the trade-offs the model is making. This visibility is essential for identifying "shortcuts," such as when a model relies on sensitive attributes like gender rather than professional qualifications to make a prediction. Without these visual indicators, a model might appear highly efficient while actually masking significant ethical failures.
+Furthermore, the dashboard enhances responsibility by embedding accountability directly into the evaluation phase of the data science workflow. The inclusion of a Fairness by Group analysis allows for the proactive detection of disparities across different demographic subsets. If the dashboard reveals that the model’s Recall is significantly lower for a protected group, it provides the empirical evidence necessary to halt deployment. This ensures that the responsibility does not end at the model's training phase but continues into a rigorous auditing process where data-driven interventions can be used to mitigate bias and refine the data preparation stage.
+Ultimately, this dashboard facilitates a Human-in-the-Loop governance model, where human decision-makers are empowered to intervene based on clear evidence. By presenting precision and recall alongside fairness charts, the system ensures that AI serves as a support tool for professional merit rather than a punitive surveillance machine. This iterative cycle of monitoring and adjustment is what defines a truly responsible AI system, ensuring that transparency and dignity remain at the forefront of the technological integration in the workplace.""")
